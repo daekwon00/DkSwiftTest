@@ -6,19 +6,31 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Tab("뉴스피드", systemImage: "newspaper") {
+                PostListView()
+            }
+
+            Tab("할 일", systemImage: "checklist") {
+                TodoListView()
+            }
+
+            Tab("설정", systemImage: "gearshape") {
+                SettingsView()
+            }
+
+            Tab("쇼케이스", systemImage: "sparkles") {
+                ShowcaseListView()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: TodoItem.self, inMemory: true)
 }

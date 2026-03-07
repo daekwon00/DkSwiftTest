@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct DkSwiftTestApp: App {
@@ -13,5 +14,6 @@ struct DkSwiftTestApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [TodoItem.self])
     }
 }
